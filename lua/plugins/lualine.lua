@@ -1,4 +1,7 @@
-require('lualine').setup {
+return {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    opts = {
   options = {
     icons_enabled = true,
     theme = 'auto',
@@ -10,7 +13,7 @@ require('lualine').setup {
     },
     ignore_focus = {},
     always_divide_middle = true,
-    globalstatus = false,
+    globalstatus = true,
     refresh = {
       statusline = 1000,
       tabline = 1000,
@@ -37,4 +40,5 @@ require('lualine').setup {
   winbar = {},
   inactive_winbar = {},
   extensions = {}
+},
 }
