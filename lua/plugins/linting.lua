@@ -1,8 +1,13 @@
 return {
     'mfussenegger/nvim-lint',
+    dependencies = {
+        "rshkarin/mason-nvim-lint",
+        "williamboman/mason.nvim",
+    },
+    priority = 200,
     config = function()
         require('lint').linters_by_ft = {
-            python = { 'ruff' },
+            python = { 'mypy' },
             sh = { 'shellcheck' },
             yaml = { 'yamllint' },
             json = { 'jsonlint' },
@@ -14,5 +19,7 @@ return {
             pattern = "*", group = lint_augroup, callback = function()
                 require('lint').try_lint()
             end})
+
+        require("mason-nvim-lint").setup()
     end,
 }
