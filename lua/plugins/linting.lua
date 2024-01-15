@@ -7,7 +7,6 @@ return {
     priority = 200,
     config = function()
         require('lint').linters_by_ft = {
-            python = { 'mypy' },
             sh = { 'shellcheck' },
             yaml = { 'yamllint' },
             json = { 'jsonlint' },
@@ -21,5 +20,7 @@ return {
             end})
 
         require("mason-nvim-lint").setup()
+
+        vim.keymap.set("n", '<leader>l', function() require('lint').try_lint() end)
     end,
 }
